@@ -19,15 +19,18 @@ public class Util {
     private static final String PASSWORD = "yJLA0MEgV63N2kju";
 
     private static SessionFactory sessionFactory;
-    private static Connection conn;
+//    private static Connection conn;
 
-    static {
-        try {
-            conn = DriverManager.getConnection(URL, USER, PASSWORD);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    private Util() {
     }
+
+//    static {
+//        try {
+//            conn = DriverManager.getConnection(URL, USER, PASSWORD);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
@@ -55,8 +58,8 @@ public class Util {
         return sessionFactory;
     }
 
-    public static Connection getConnection() {
-        return conn;
-    }
+//    public static Connection getConnection() {
+//        return conn;
+//    }
 }
 
