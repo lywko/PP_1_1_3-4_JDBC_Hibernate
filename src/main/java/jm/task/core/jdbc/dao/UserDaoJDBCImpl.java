@@ -60,7 +60,6 @@ public class UserDaoJDBCImpl implements UserDao {
                 user.setId(resultSet.getLong("id"));
                 users.add(user);
             }
-            resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
