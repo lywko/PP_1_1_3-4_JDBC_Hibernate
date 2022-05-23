@@ -11,20 +11,13 @@ import java.util.Properties;
 
 public class Util {
 
-//    private static final String URL = "jdbc:mysql://localhost:3306/mydb";
-//    private static final String USER = "root";
-//    private static final String PASSWORD = "yJLA0MEgV63N2kju";
-
     private static SessionFactory sessionFactory;
-//    private static Connection conn;
 
-    //    static {
-//        try {
-//            conn = DriverManager.getConnection(URL, USER, PASSWORD);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    private Util() {
+
+    }
+
+
     private static SessionFactory createSessionFactory() {
         Configuration configuration = new Configuration();
         Properties settings = new Properties();
@@ -51,8 +44,5 @@ public class Util {
         return sessionFactory;
     }
 
-//    public static Connection getConnection() {
-//        return conn;
-//    }
 }
 
