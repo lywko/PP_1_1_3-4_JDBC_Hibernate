@@ -11,14 +11,19 @@ import java.util.Properties;
 
 public class Util {
 
-    private static SessionFactory sessionFactory;
+    private static Util INSTANCE;
 
     private Util() {
-
     }
 
+    public static Util getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new Util();
+        }
+        return INSTANCE;
+    }
 
-    private static SessionFactory createSessionFactory() {
+    public static SessionFactory getSessionFactory() {
         Configuration configuration = new Configuration();
         Properties settings = new Properties();
         settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
@@ -32,17 +37,10 @@ public class Util {
         configuration.addAnnotatedClass(User.class);
         StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties()).build();
-        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-
+        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         return sessionFactory;
     }
 
-    public static SessionFactory getSessionFactory() {
-        if (sessionFactory == null) {
-            sessionFactory = createSessionFactory();
-        }
-        return sessionFactory;
-    }
 
 }
 
